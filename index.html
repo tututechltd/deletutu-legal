@@ -96,10 +96,10 @@
     </div>
 
     <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: May 23, 2026</p>
+    <p class="updated">Last updated: June 7, 2026</p>
 
     <div class="highlight">
-      <strong>The short version:</strong> Your photos and videos <strong>never leave your device</strong>. All AI analysis runs on-device with Apple's CoreML. We do collect a small amount of anonymous, aggregated information — anonymous app usage events (via Firebase Analytics), crash reports (via Firebase Crashlytics), and Apple Search Ads attribution metadata. Every single thing we collect is itemized below — no exceptions, no surprises.
+      <strong>The short version:</strong> Your photos and videos <strong>never leave your device</strong>. All photo analysis runs on-device using Apple's PhotoKit. We do collect a small amount of anonymous, aggregated information — anonymous app usage events (via Firebase Analytics), crash reports (via Firebase Crashlytics), and Apple Search Ads attribution metadata. Every single thing we collect is itemized below — no exceptions, no surprises.
     </div>
 
     <h2>1. Who We Are</h2>
@@ -114,7 +114,7 @@
     <ul>
       <li>Your photos and videos (full files, thumbnails, or any derived bitmap)</li>
       <li>Filenames, EXIF metadata, GPS location embedded in photos</li>
-      <li>AI/ML analysis results: face embeddings, image embeddings (CLIP), scene classifications, duplicate-detection hashes</li>
+      <li>Category tags computed on-device (screenshot / selfie / large-video / favorite) and the per-asset file sizes used to total freed space</li>
       <li>Your photo library contents, counts, or storage size</li>
       <li>The list of photos you reviewed, kept, deleted, or archived</li>
       <li>Your email address (we request it via OAuth scopes but immediately discard it after sign-in)</li>
@@ -123,10 +123,9 @@
       <li>Advertising identifiers (<code>IDFA</code>) and the <code>AppTrackingTransparency</code> prompt are never used</li>
     </ul>
     <p>
-      All photo analysis happens on-device using Apple's PhotoKit, Vision, and CoreML
-      frameworks with three bundled CoreML models: <code>MobileFaceNet</code> (face
-      embeddings), <code>mobileclip_s0_image</code>, and <code>mobileclip_s0_text</code>
-      (visual and text embeddings for similarity search).
+      All photo analysis happens on-device using Apple's <strong>PhotoKit</strong> — the app reads
+      native photo metadata (media type, screenshot/selfie/favorite flags, file size) to build its
+      cleanup categories. No machine-learning models are bundled and no embeddings are computed.
     </p>
 
     <h2>3. What We Do Collect — Fully Itemized</h2>
@@ -224,13 +223,13 @@
     </p>
     <ul>
       <li>Display your photos and videos for review</li>
-      <li>Analyze photos for blur, duplicate, and screenshot detection (all processing on-device)</li>
+      <li>Sort photos into categories — screenshots, selfies, large videos, favorites, and your albums (all processing on-device)</li>
       <li>Delete photos you choose to remove (via iOS's native Photos system)</li>
       <li>Play video previews inline</li>
     </ul>
     <p>
-      Your photos are read and analyzed locally using Apple's PhotoKit and CoreML
-      frameworks. <strong>No photo bitmap, thumbnail, or derived embedding ever
+      Your photos are read and analyzed locally using Apple's PhotoKit framework.
+      <strong>No photo bitmap, thumbnail, or derived data ever
       leaves your device.</strong>
     </p>
     <p>
